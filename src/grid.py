@@ -36,7 +36,7 @@ class Grid:
 
         for mode in ['backgrounds', 'walls']:
             for cell in self.each_cell():
-                x = cell._column* cell_size
+                x = cell._column * cell_size
                 y = cell._row * cell_size
 
                 self.to_png_without_inset(draw, cell, mode, cell_size, wall, x, y, wall_width)
