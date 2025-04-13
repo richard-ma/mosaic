@@ -1,5 +1,4 @@
 class Cell:
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
-        
+    def __init__(self, row, column):
+        self._row = row
+        self._column = column
