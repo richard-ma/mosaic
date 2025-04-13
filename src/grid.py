@@ -5,7 +5,7 @@ class Grid:
     def __init__(self, rows, cols):
         self.rows = rows
         self.cols = cols
-        self.cells = [[Cell() for x in range(cols)] for y in range(rows)]
+        self.cells = [[Cell(y, x) for x in range(cols)] for y in range(rows)]
         
     def __getitem__(self, pos):
         x, y = pos
@@ -25,8 +25,8 @@ class Grid:
             yield [self.cells[row][col] for row in range(self.rows)]
 
     def to_png(self, filename, cell_size=10, wall_width=2):
-        img_width = cell_size * self._columns
-        img_height = cell_size * self._rows
+        img_width = cell_size * self.cols
+        img_height = cell_size * self.rows
 
         background = 'white'
         wall = 'black'
@@ -36,7 +36,7 @@ class Grid:
 
         for mode in ['backgrounds', 'walls']:
             for cell in self.each_cell():
-                x = cell._column * cell_size
+                x = cell._column* cell_size
                 y = cell._row * cell_size
 
                 self.to_png_without_inset(draw, cell, mode, cell_size, wall, x, y, wall_width)
