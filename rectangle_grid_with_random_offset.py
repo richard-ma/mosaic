@@ -46,7 +46,7 @@ class RectangleGridWithRandomOffsetAndBackgroundColor(RectangleGridWithRandomOff
 
 
 if __name__ == "__main__":
-    # grid = RectangleGridWithRandomOffset(10, 10, max_offset_x=10, max_offset_y=10)
-    # grid.to_png("rectangle_grid_with_random_offset.png", cell_size=100, wall_width=2)
+    grid = RectangleGridWithRandomOffset(10, 10, max_offset_x=10, max_offset_y=10)
+    grid.to_png("rectangle_grid_with_random_offset.png", cell_size=100, wall_width=2)
     grid_with_bg = RectangleGridWithRandomOffsetAndBackgroundColor(10, 10, max_offset_x=10, max_offset_y=10)
     grid_with_bg.to_png("rectangle_grid_with_random_offset_and_bg.png", cell_size=100, wall_width=2)
