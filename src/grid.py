@@ -28,8 +28,8 @@ class Grid:
         img_width = cell_size * self.cols
         img_height = cell_size * self.rows
 
-        background = 'white'
-        wall = 'black'
+        background = 'black'
+        wall = 'white'
 
         img = Image.new('RGB', (img_width+1, img_height+1), color=background)
         draw = ImageDraw.Draw(img)
@@ -60,6 +60,3 @@ class Grid:
     
     def background_color_for(self, cell):
         return None
-
-    def draw_background_color_for(self, draw):
-        draw.rectangle((x1, y1, x2, y2), fill=color)
