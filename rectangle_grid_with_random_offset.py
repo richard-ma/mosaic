@@ -29,14 +29,24 @@ class RectangleGridWithRandomOffset(Grid):
         if mode == 'backgrounds':
             color = self.background_color_for(cell)
             if color is not None:
-                draw.rectangle((x1, y1, x2, y2), fill=color)
-        else:
+                draw.polygon((point1, point2, point4, point3), fill=color)
+
             draw.line((*point1, *point2), fill=wall, width=wall_width)
             draw.line((*point1, *point3), fill=wall, width=wall_width)
             draw.line((*point2, *point4), fill=wall, width=wall_width)
             draw.line((*point3, *point4), fill=wall, width=wall_width)
 
 
+class RectangleGridWithRandomOffsetAndBackgroundColor(RectangleGridWithRandomOffset):
+    def __init__(self, rows, cols, max_offset_x=0, max_offset_y=0):
+        super().__init__(rows, cols, max_offset_x, max_offset_y)
+
+    def background_color_for(self, cell):
+        return (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+
+
 if __name__ == "__main__":
-    grid = RectangleGridWithRandomOffset(10, 10, max_offset_x=10, max_offset_y=10)
-    grid.to_png("rectangle_grid_with_random_offset.png", cell_size=100, wall_width=2)
+    # grid = RectangleGridWithRandomOffset(10, 10, max_offset_x=10, max_offset_y=10)
+    # grid.to_png("rectangle_grid_with_random_offset.png", cell_size=100, wall_width=2)
+    grid_with_bg = RectangleGridWithRandomOffsetAndBackgroundColor(10, 10, max_offset_x=10, max_offset_y=10)
+    grid_with_bg.to_png("rectangle_grid_with_random_offset_and_bg.png", cell_size=100, wall_width=2)
