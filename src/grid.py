@@ -51,7 +51,7 @@ class Grid:
         if mode == 'backgrounds':
             color = self.background_color_for(cell)
             if color is not None:
-                draw.rectangle((x1, y1, x2, y2), fill=color)
+                draw.polygon(((x1, y1), (x2, y1), (x2, y2), (x1, y2)), fill=color)
         else:
             draw.line((x1, y1, x2, y1), fill=wall, width=wall_width)
             draw.line((x1, y1, x1, y2), fill=wall, width=wall_width)
@@ -60,3 +60,6 @@ class Grid:
     
     def background_color_for(self, cell):
         return None
+
+    def draw_background_color_for(self, draw):
+        draw.rectangle((x1, y1, x2, y2), fill=color)
