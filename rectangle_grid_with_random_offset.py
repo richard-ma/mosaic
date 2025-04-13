@@ -11,10 +11,10 @@ class RectangleGridWithRandomOffset(Grid):
         self.max_offset_y = max_offset_y
 
     def get_offset_x(self):
-        return random.randint(0, self.max_offset_x)
+        return random.randint(1, self.max_offset_x)
 
     def get_offset_y(self):
-        return random.randint(0, self.max_offset_y)
+        return random.randint(1, self.max_offset_y)
 
     def to_png_without_inset(self, draw, cell, mode, cell_size, wall, x, y, wall_width):
         x1, y1 = x, y
@@ -38,5 +38,5 @@ class RectangleGridWithRandomOffset(Grid):
 
 
 if __name__ == "__main__":
-    grid = RectangleGridWithRandomOffset(10, 10, max_offset_x=4, max_offset_y=4)
-    grid.to_png("rectangle_grid_with_random_offset.png", cell_size=40, wall_width=2)
+    grid = RectangleGridWithRandomOffset(10, 10, max_offset_x=10, max_offset_y=10)
+    grid.to_png("rectangle_grid_with_random_offset.png", cell_size=100, wall_width=2)
