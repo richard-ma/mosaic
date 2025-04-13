@@ -6,8 +6,9 @@ class Grid:
         self.cols = cols
         self.cells = [[Cell(cell_width, cell_height) for x in range(cols)] for y in range(rows)]
         
-    def getitem(self, row, col):
-        return self.cells[row][col]
+    def __getitem__(self, pos):
+        x, y = pos
+        return self.cells[y][x]
     
     def each_cell(self):
         for row in self.cells:
